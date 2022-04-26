@@ -17,7 +17,7 @@ export default function App() {
   };
   useEffect(() => {
     searchMovie(searchTerm);
-  }, []);
+  }, [searchTerm]);
 
   return (
     <div className="app">
