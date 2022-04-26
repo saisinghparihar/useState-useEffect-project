@@ -10,13 +10,14 @@ export default function App() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const searchMovie = async (title) => {
-    await fetch(`${API}&s=${title}`).then((response) =>
-      response.json().then((data) => setMovies(data.Search))
-    );
+    const response = await fetch(`${API}&s=${title}`);
+    const data = await response.json();
+
+    setMovies(data.Search);
   };
   useEffect(() => {
     searchMovie(searchTerm);
-  }, [searchTerm]);
+  }, []);
 
   return (
     <div className="app">
